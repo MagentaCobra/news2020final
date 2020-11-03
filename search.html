@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Search</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="apikey.js?version=1.0"></script>
+<script src="search.js?version=1.0"></script>
+<link rel="stylesheet" type="text/css" href="search.css?v=1.0">
+<script>
+
+  var paywalls=['the-wall-street-journal','the-washington-post']; //they are identfied as paywall
+  
+</script>
+
+</head>
+
+<body>
+<div class='toptitle'><img src='images/logo.png' /></div>
+<div class='topmenu'><span status='1' url='index.html'> HOME </span> | <span status='0'> SEARCH </span> | <span status='1' url='favorite.html'> FAVORITE </span> |<span status='1' url='saved.html'> SAVED </span></div>
+
+<table style='position:absolute;top:150px;'>
+<tr><td>
+    <select id='searchCategory' title='Select category'>
+        <option value='entertainment'>Entertainment</option>
+        <option value='sports'>Sports</option>
+        <option value='technology'>Technology</option>
+        <option value='business'>Business</option>
+    </select>
+</td><td>
+    <select id='country' title='Select a country-not all countries are listed'>
+        <option value='0'>Country</option>
+        <option value='us'>United States</option>
+        <option value='cn'>China</option>
+        <option value='kr'>South Korea</option>
+        <option value='za'>South Africa</option>
+        <option value='au'>Australia</option>
+    </select>
+</td>
+<td>
+	<input type='text' id='keywordSearch' maxlength="100" style='text-align:center' placeholder="key word search" title='Single phrase search, e.g. covid'/>
+</td>
+<td><select id='sortBy'>
+ 	<option value='0'>Sort the result by:</option>
+    <option value='publishedAt'>By published date</option>
+    <option value='poluparity'>By poluparity</option>
+ </select>
+</td>
+
+<td align="right">From: <input type='date' id='dateFrom' title="headlines from the date"/></td>
+<td align='right'>To: <input type='date' id='dateTo' title="headlines from the date"/></td></tr>
+<tr><td colspan="6"></tr>
+<tr><td colspan="6" align="center">
+	<hr size='2' color='blue' />
+    <button onclick="resetFields();"> Reset </button>&nbsp; &nbsp;
+    <button onclick="searching();"> Search </button> 
+</td></tr>
+
+</table>
+
+<img id='addFavorite' src='images/add.png' onclick='addToFavorite()' title='Add to my favorite list.
+To use this feature, make sure cookie is enable.'/>
+<input type='text' id='favoriteName' maxlength="50" placeholder='Label' title='Name this favorite'/>
+<span id='paywallsign' title='News from paywall list, including
+wall-street-journal,the-washington-post are marked.' style='cursor:help'><img src='images/dollar16.png' /> Paywall</span>
+<div class='result'>
+
+</div>
+<img id='moreOption' src='images/moreV24.png' />
+<div id='optionMenu'>
+    <span todo='copyURL'><img src='images/link16.png' /> Copy link </span>
+	<span todo='save'><img src='images/save16a.png' /> Save </span>
+    <span todo='source'><img src='images/source16.png' /> Go to source </span>
+</div>
+</body>
+</html>
